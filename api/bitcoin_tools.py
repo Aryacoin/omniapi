@@ -1,4 +1,4 @@
-#import hashlib
+import hashlib
 #import re
 from pycoin import encoding
 from pybitcointools import pubtoaddr
@@ -61,10 +61,22 @@ def is_pubkey_valid(pubkey):
         return False
 
 def is_valid_bitcoin_address(addr):
-    try:
-        return encoding.is_valid_bitcoin_address(addr)
-    except:
+    decoded_address = b58decode(addr,25)
+    if decoded_address == None:
         return False
+
+    network_id = decoded_address[0]
+    private_key_hash = decoded_address[1:21]
+    checksum = decoded_address[-4:]
+    if network_id != chr(14) and network_id != chr(5):
+        return False
+
+    hash1 = hashlib.sha256(network_id + private_key_hash).digest()
+    hash2 = hashlib.sha256(hash1).digest()
+    if checksum != hash2[:4]:
+        return False
+
+    return True
 
 def is_valid_bitcoin_address_or_pubkey(value):
     return is_valid_bitcoin_address or is_pubkey_valid(value)

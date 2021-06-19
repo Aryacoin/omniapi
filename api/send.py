@@ -29,7 +29,7 @@ def send_form_response(response_dict):
     if "." in response_dict['amount']:
       return (None, "Invalid Format. Amount should be specified in satoshis with no decimal point")
 
-    if 'currency' in response_dict and (response_dict['currency'] not in ['BTC','btc',0,'0']):
+    if 'currency' in response_dict and (response_dict['currency'] not in ['AYA','aya',0,'0']):
         return (None, "Endpoint does not support that currency")
 
     if TESTNET or ('testnet' in response_dict and ( response_dict['testnet'][0] in ['true', 'True'] )):
@@ -38,8 +38,8 @@ def send_form_response(response_dict):
         exodus_address='mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv'
     else:
         testnet = False
-        magicbyte = 0
-        exodus_address='1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P'
+        magicbyte = 23
+        exodus_address='6eXoDUSUV7yrAxKVNPEeKAHMY8San5Z37V'
 
     if response_dict.has_key( 'pubKey' ) and is_pubkey_valid( response_dict['pubKey'][0]):
         pubkey = response_dict['pubKey'][0]
@@ -165,8 +165,8 @@ def prepare_send_tx_for_signing(from_address, to_address, marker_address, amount
     # calculate change
     change_value=inputs_total_value-required_value-fee
     if change_value < 0:
-        info('Error not enough BTC to generate tx - negative change')
-        raise Exception('This address must have enough BTC for miner fees and protocol transaction fees')
+        info('Error not enough AYA to generate tx - negative change')
+        raise Exception('This address must have enough AYA for miner fees and protocol transaction fees')
 
     # create a normal bitcoin transaction (not mastercoin)
     # dust to marker if required
