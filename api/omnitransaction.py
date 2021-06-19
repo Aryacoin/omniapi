@@ -9,8 +9,8 @@ import config
 class OmniTransaction:
     confirm_target=6
     HEXSPACE_SECOND='21'
-    mainnet_exodus_address='1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P'
-    testnet_exodus_address='mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv'
+    mainnet_exodus_address='AexoDusyQfrYZnUfNWGwWLt2oKoviRSB38'
+    testnet_exodus_address='mxodUSi96BfpyLhbwuDBWBhe3LftE2gxhC'
 
     def __init__(self,tx_type,form):
         #self.conn = getRPCconn()

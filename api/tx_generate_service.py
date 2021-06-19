@@ -13,8 +13,8 @@ app = Flask(__name__)
 app.debug = True
 
 HEXSPACE_SECOND='21'
-mainnet_exodus_address='1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P'
-testnet_exodus_address='mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv'
+mainnet_exodus_address='AexoDusyQfrYZnUfNWGwWLt2oKoviRSB38'
+testnet_exodus_address='mxodUSi96BfpyLhbwuDBWBhe3LftE2gxhC'
 magicbyte=0
 testnet=False
 exodus_address=mainnet_exodus_address

@@ -35,7 +35,7 @@ def send_form_response(response_dict):
     if TESTNET or ('testnet' in response_dict and ( response_dict['testnet'][0] in ['true', 'True'] )):
         testnet =True
         magicbyte = 111
-        exodus_address='mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv'
+        exodus_address='mxodUSi96BfpyLhbwuDBWBhe3LftE2gxhC'
     else:
         testnet = False
         magicbyte = 23
